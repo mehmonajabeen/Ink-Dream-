@@ -1,86 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Reader</title>
-<style>
-body{
-  background:#111;
-  color:white;
-  font-family:Arial;
-  margin:0;
-}
-
-.box{
-  max-width:700px;
-  margin:auto;
-  padding:20px;
-}
-
-.card{
-  background:#1e1e1e;
-  padding:20px;
-  border-radius:10px;
-}
-
-button{
-  padding:10px;
-  margin:5px;
-  background:#4E8DA6;
-  color:white;
-  border:none;
-}
-</style>
+  <title>Reader - Ink-Dream</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="box">
+<header>📖 Read Novel</header>
 
-<div class="card">
+<div class="container">
 
-<h2 id="t"></h2>
-<p id="c"></p>
-
-<button onclick="prev()">Prev</button>
-<button onclick="next()">Next</button>
+  <div class="card">
+    <h2>Chapter 1</h2>
+    <p>
+      This is where your story starts...  
+      A girl entered a world she never knew existed.
+    </p>
+  </div>
 
 </div>
-
-</div>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH",
-  projectId: "YOUR_PROJECT_ID"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-let chapters=[];
-let i=0;
-
-async function load(){
-  const snap = await getDocs(collection(db,"chapters"));
-  snap.forEach(d=>chapters.push(d.data()));
-  show();
-}
-
-function show(){
-  if(chapters.length==0) return;
-  document.getElementById("t").innerText = chapters[i].title;
-  document.getElementById("c").innerText = chapters[i].text;
-}
-
-window.next=()=>{ if(i<chapters.length-1){i++;show();} }
-window.prev=()=>{ if(i>0){i--;show();} }
-
-load();
-</script>
 
 </body>
 </html>
