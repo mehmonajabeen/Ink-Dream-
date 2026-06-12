@@ -1,28 +1,18 @@
-<input type="text" id="search" placeholder="Search novel..." onkeyup="searchNovel()">
+<!DOCTYPE html>
+<html>
+<head>
+<title>Library</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<div class="card" data-name="future written in blood">
-  <h3>Future Written in Blood</h3>
-  <a href="reader.html">Read</a>
+<header>📚 Novel Library</header>
+
+<div class="card">
+<h2>Future Written in Blood</h2>
+<p>College • Mafia • CEO Romance</p>
+<a href="reader.html" class="btn">Read Now</a>
 </div>
 
-<div class="card" data-name="dark ceo love">
-  <h3>Dark CEO Love</h3>
-  <a href="reader.html">Read</a>
-</div>
-
-<script>
-function searchNovel(){
-  let input = document.getElementById("search").value.toLowerCase();
-  let cards = document.querySelectorAll(".card");
-
-  cards.forEach(card => {
-    let name = card.getAttribute("data-name");
-
-    if(name.includes(input)){
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
-}
-</script>
+</body>
+</html>
