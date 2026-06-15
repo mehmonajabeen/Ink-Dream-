@@ -1,2 +1,2 @@
-console.log("Ink-Dream loaded 🚀");
+console.log("Ink-Dream loaded ");
 
